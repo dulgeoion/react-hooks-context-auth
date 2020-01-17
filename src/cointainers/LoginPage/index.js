@@ -13,9 +13,9 @@ export const LoginPage = () => {
   return (
     <div className="login-page">
       <span>Email</span>
-      <Input value={email} onChange={e => setEmail(e.target.value)} />
+      <Input value={email} type="email" onChange={e => setEmail(e.target.value)} />
       <span>Passowrd</span>
-      <Input value={password} onChange={e => setPassword(e.target.value)} />
+      <Input value={password} type="password" onChange={e => setPassword(e.target.value)} />
       <Input
         type="submit"
         onClick={() => {

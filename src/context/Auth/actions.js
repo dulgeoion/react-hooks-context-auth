@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import agent from "../agent";
+import agent from "../../agent";
 import Cookies from "js-cookie";
-import { useUser } from './user';
+import { useUser } from '../User/actions';
 
 const authContext = createContext();
 
@@ -17,13 +17,13 @@ export const useAuth = () => {
 };
 
 const useProvideAuth = () => {
-  const { setUser } = useUser();
+  const { setUser, getUser, removeUser } = useUser();
 
   const signIn = (email, password) => {
     return agent.Auth.login(email, password).then(response => {
       Cookies.set('jwt', response.jwt)
-      setUser({ isLoggedIn: true })
-    });
+      return getUser()
+    }).then(res =>  setUser({ isLoggedIn: true, ...res }))
   };
 
   const signup = (email, password) => {
@@ -32,9 +32,15 @@ const useProvideAuth = () => {
     });
   };
 
+  const signOut = () => {
+    Cookies.remove('jwt');
+    removeUser();
+  }
+
   // Return the user object and auth methods
   return {
     signIn,
     signup,
+    signOut
   };
 }

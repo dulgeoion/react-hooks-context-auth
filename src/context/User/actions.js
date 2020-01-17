@@ -5,9 +5,9 @@ import React, {
   createContext,
   useReducer
 } from "react";
-import agent from "../agent";
+import agent from '../../agent';
 import Cookies from "js-cookie";
-import userReducer from "../reducers/user";
+import userReducer from "./reducer";
 import { SET_USER, SET_USER_LOCALE, REMOVE_USER } from "./types";
 
 const userContext = createContext();
@@ -60,7 +60,7 @@ function useProvideUser() {
     })
   }
 
-  const signOut = () => {
+  const removeUser = () => {
     dispatch({
       type: REMOVE_USER
     })
@@ -70,7 +70,7 @@ function useProvideUser() {
     user: state.user,
     getUser,
     setUserLocale,
-    signOut,
+    removeUser,
     setUser
   };
 }

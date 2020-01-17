@@ -1,0 +1,27 @@
+.authorized-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+
+  code {
+    margin: auto;
+    // width: 5rem;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 250px;
+    margin: 25px auto;
+    height: 50px;
+    background-color: black;
+    font-size: 1em;
+    color: white;
+  }
+
+  &__table {
+    flex-basis: 100px;
+    align-self: center;
+  }
+}

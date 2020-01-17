@@ -1,8 +1,8 @@
 import React from "react";
-import { AuthProvider } from "./auth";
-import { UserProvider } from "./user";
-export { useAuth } from "./auth";
-export { useUser } from "./user";
+import { AuthProvider } from "./Auth/actions";
+import { UserProvider } from "./User/actions";
+export { useAuth } from "./Auth/actions";
+export { useUser } from "./User/actions";
 
 export const AppProviders = ({ children }) => {
   return (

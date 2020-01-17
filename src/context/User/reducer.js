@@ -1,4 +1,4 @@
-import { SET_USER, REMOVE_USER, SET_USER_LOCALE } from "../context/types";
+import { SET_USER, REMOVE_USER, SET_USER_LOCALE } from "./types";
 
 export default (state, action) => {
   console.log("TCL: state, action", state, action);

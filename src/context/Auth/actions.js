@@ -7,7 +7,7 @@ const authContext = createContext();
 
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth();
+  const auth = useProviderAuth();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
@@ -16,7 +16,7 @@ export const useAuth = () => {
   return useContext(authContext);
 };
 
-const useProvideAuth = () => {
+const useProviderAuth = () => {
   const { setUser, getUser, removeUser } = useUser();
 
   const signIn = (email, password) => {
@@ -37,7 +37,6 @@ const useProvideAuth = () => {
     removeUser();
   }
 
-  // Return the user object and auth methods
   return {
     signIn,
     signup,
